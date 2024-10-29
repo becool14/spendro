@@ -1,109 +1,116 @@
+Sure! Here's the content formatted for a README file in plain text:
+
+```
 # Spendro MERN Application
 
-Цей проєкт — MERN-стек застосунок, який складається з `frontend` (React), `backend` (Node.js + Express) і `MongoDB` (база даних). Застосунок контейнеризований за допомогою Docker для спрощення розгортання.
+This project is a MERN stack application consisting of a `frontend` (React), `backend` (Node.js + Express), and MongoDB (database). The application is containerized using Docker for easier deployment.
 
-## Вимоги
+## Requirements
 
-Для запуску цього проєкту вам потрібно встановити:
+To run this project, you need to have:
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
-- [Docker Compose](https://docs.docker.com/compose/install/) (вже вбудований у Docker Desktop)
+- [Docker Compose](https://docs.docker.com/compose/install/) (already included with Docker Desktop)
 
-> **Примітка:** Переконайтеся, що Docker працює в режимі **Linux Containers** (якщо ви на Windows).
+> **Note:** Ensure that Docker is running in **Linux Containers** mode (if you are on Windows).
 
-## Структура проєкту
+## Project Structure
 
 ```plaintext
 spendro/
-├── backend/             # Бекенд Node.js/Express
-│   ├── controllers/     # Контролери бекенду
-│   ├── db/              # Налаштування бази даних
-│   ├── models/          # Моделі бази даних
-│   ├── routes/          # Маршрути бекенду
-│   └── server.js        # Основний файл сервера
-├── frontend/            # Фронтенд React
-│   ├── public/          # Публічні файли React
-│   └── src/             # Вихідні файли React
-├── docker-compose.yml   # Файл для Docker Compose
-└── README.md            # Цей файл
+├── backend/             # Backend Node.js/Express
+│   ├── controllers/     # Backend controllers
+│   ├── db/              # Database setup
+│   ├── models/          # Database models
+│   ├── routes/          # Backend routes
+│   └── server.js        # Main server file
+├── frontend/            # Frontend React
+│   ├── public/          # Public files for React
+│   └── src/             # Source files for React
+├── docker-compose.yml   # Docker Compose file
+└── README.md            # This file
+```
 
+## Create `.env` Files
 
+Make sure to create `.env` files in the `backend` and `frontend` directories. You can use the `.env.example` files as templates to create the corresponding `.env` files.
 
-Створіть .env файли
+For `backend/.env`:
 
-Переконайтеся, що у папках backend і frontend є файли .env. Ви можете використати файли .env.example як шаблон і створити відповідні .env файли.
-
-Для backend/.env:
-
+```
 MONGO_URI=mongodb://mongo:27017/spendrodb
 PORT=5000
+```
 
+For `frontend/.env`:
 
-Для frontend/.env:
-
+```
 REACT_APP_API_URL=http://localhost:5000
+```
 
+## Start Docker Compose to Build and Run Containers
 
-Запустіть Docker Compose, щоб зібрати та запустити контейнери:
-
-
+```bash
 docker-compose up --build
+```
 
-Це збере образи для backend, frontend, та mongo і запустить їх у контейнерах.
+This will build images for the backend, frontend, and MongoDB, and run them in containers.
 
-Відкрийте браузер і перевірте застосунок:
+Open your browser and check the application:
 
-Фронтенд (React) буде доступний за адресою: http://localhost:3000
-Бекенд (Node.js/Express) буде працювати на порту 5000, але його можна викликати через фронтенд.
-Зупинка контейнерів
+- The frontend (React) will be available at: http://localhost:3000
+- The backend (Node.js/Express) will run on port 5000 but can be accessed through the frontend.
 
-Для зупинки контейнерів натисніть Ctrl + C у терміналі, де працює Docker Compose, або скористайтеся командою:
+## Stopping Containers
 
+To stop the containers, press Ctrl + C in the terminal where Docker Compose is running, or use the command:
 
+```bash
 docker-compose down
+```
 
-Якщо ви додали нові залежності або внесли зміни у Dockerfile, перезапустіть з --build:
+If you added new dependencies or made changes to the Dockerfile, restart with `--build`:
 
-
+```bash
 docker-compose up --build
+```
 
-Основні команди Docker
-Запуск контейнерів: docker-compose up
-Запуск контейнерів з перезбіркою: docker-compose up --build
-Зупинка контейнерів: docker-compose down
-Перегляд працюючих контейнерів: docker ps
-Перевірка логів: docker-compose logs -f <service_name>
-Наприклад: docker-compose logs -f backend для перегляду логів бекенду.
+## Basic Docker Commands
 
-Troubleshooting
-Помилка "address already in use"
+- Start containers: `docker-compose up`
+- Start containers with rebuild: `docker-compose up --build`
+- Stop containers: `docker-compose down`
+- View running containers: `docker ps`
+- Check logs: `docker-compose logs -f <service_name>`
+  - For example: `docker-compose logs -f backend` to view backend logs.
 
-Якщо ви бачите помилку на кшталт EADDRINUSE, це означає, що порт вже зайнятий. Переконайтеся, що інші сервіси не використовують порти 5000 або 3000.
-Помилка при підключенні до MongoDB
+## Troubleshooting
 
-Переконайтеся, що змінна середовища MONGO_URI вказує на правильний хост (у нашому випадку це mongo, оскільки так називається сервіс у docker-compose.yml).
-Зміни не застосовуються після редагування коду
+### "Address already in use" Error
 
-Якщо ви вносите зміни у код, вони мають бути автоматично помічені завдяки volumes. Якщо зміни не застосовуються, перевірте налаштування docker-compose.yml.
-Додаткова інформація
-Документацію по Docker та Docker Compose можна знайти тут:
+If you see an error like `EADDRINUSE`, it means the port is already in use. Make sure other services are not using ports 5000 or 3000.
 
-Docker Documentation
-Docker Compose Documentation
-markdown
+### MongoDB Connection Error
 
+Ensure that the environment variable `MONGO_URI` points to the correct host (in our case, it's `mongo`, as that's the name of the service in `docker-compose.yml`).
 
-### Пояснення до `README.md`
+### Changes Not Applying After Code Edit
 
-1. **Опис**: Документація пояснює, що це за проєкт і які технології він використовує.
-2. **Вимоги**: Користувач повинен мати Docker і Docker Compose, які вже включені в Docker Desktop.
-3. **Налаштування і запуск**: Детально розписані всі кроки для запуску, від клонування репозиторію до запуску `docker-compose`.
-4. **Команди Docker**: Корисні команди для зупинки, запуску та перевірки контейнерів.
-5. **Troubleshooting**: Часті помилки та способи їх виправлення, щоб співробітник міг самостійно розв'язати проблеми, якщо вони виникнуть.
+If you make changes to the code, they should be automatically recognized due to volumes. If changes are not applying, check the settings in `docker-compose.yml`.
 
-Це допоможе вашому колезі швидко налаштувати проєкт і вирішити більшість потенційних проблем без зайвих питань.
+## Additional Information
 
+You can find the documentation for Docker and Docker Compose here:
 
+- [Docker Documentation](https://docs.docker.com/)
+- [Docker Compose Documentation](https://docs.docker.com/compose/)
 
+### Explanation of `README.md`
 
+1. **Description**: The documentation explains what the project is and which technologies it uses.
+2. **Requirements**: Users must have Docker and Docker Compose, which are already included in Docker Desktop.
+3. **Setup and Run**: Detailed steps for running the project, from cloning the repository to running `docker-compose`.
+4. **Docker Commands**: Useful commands for stopping, starting, and checking containers.
+5. **Troubleshooting**: Common errors and ways to resolve them, enabling team members to address issues independently.
 
+This will help your colleague quickly set up the project and resolve most potential problems without additional questions.
