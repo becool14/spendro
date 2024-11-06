@@ -7,6 +7,8 @@ WORKDIR /app
 # Копіюємо package.json і package-lock.json
 COPY package*.json ./
 
+ENV PATH /app/node_modules/.bin:$PATH
+
 # Встановлюємо залежності
 RUN npm install
 
@@ -17,4 +19,4 @@ COPY . .
 EXPOSE 3000
 
 # Запускаємо сервер у режимі розробки
-CMD ["npm", "start"]
+CMD npm start --host 0.0.0.0 --port 3000 --disableHostCheck true
