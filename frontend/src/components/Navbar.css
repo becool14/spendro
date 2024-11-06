@@ -1,0 +1,23 @@
+/* src/components/Navbar.css */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+  
+  nav ul li {
+    margin-left: 15px;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+  }
+  

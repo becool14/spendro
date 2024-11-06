@@ -7,7 +7,7 @@ services:
     ports:
       - "5001:5000"
     env_file:
-      - ./backend/.env  # Вказуємо шлях до файлу .env
+      - ./backend/.env
     volumes:
       - ./backend:/app
       - /app/node_modules
@@ -22,6 +22,7 @@ services:
     volumes:
       - ./frontend:/app  # Mount для hot-reloading
       - /app/node_modules  # Ігноруємо node_modules
+    command: bash -c "export NODE_OPTIONS=--openssl-legacy-provider && npm start"
 
   mongo:
     image: mongo:latest
