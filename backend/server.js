@@ -9,7 +9,7 @@ app.use(express.json());
 
 // Route to display the initial message on browser
 app.get('/', (req, res) => {
-  res.send('SPENDRO BACKEND API');
+  res.send('SPENDRO BACKEND API 555');
 });
 
 // TODO: Add routes and middleware
@@ -17,3 +17,5 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is up and running at http://localhost:${PORT} 🚀`);
 });
+
+
