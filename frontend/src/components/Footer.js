@@ -5,7 +5,7 @@ import './Footer.css';
 function Footer() {
   return (
     <footer>
-      <p>&copy; 2024 MyWebsite. All rights reserved.</p>
+      <p>&copy; 2024 Spendro. All rights reserved.</p>
     </footer>
   );
 }
