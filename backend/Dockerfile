@@ -1,5 +1,5 @@
 # Базове Node.js середовище
-FROM node:18
+FROM node:18-slim
 
 # Встановлення робочої директорії
 WORKDIR /app
