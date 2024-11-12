@@ -1,5 +1,5 @@
 // src/components/Footer.js
-import './Footer.css';
+import styles from './Footer.module.css';
 import Typography from '@mui/material/Typography';
 import { Box, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -17,7 +17,7 @@ function Footer() {
       }}
     >
       <Box
-        className="footer-container"
+        className={styles.footer_container}
         sx={{
           display: 'flex',
           alignItems: 'center',
@@ -45,7 +45,7 @@ function Footer() {
         
         {/* Текст в центрі */}
         <Box>
-          <Typography sx={{ textAlign: 'center', width: '100%', marginTop: 2 }}>
+          <Typography sx={{ textAlign: 'center', width: '100%' }}>
             &copy; 2024 Spendro
             <br /> All rights reserved
           </Typography>

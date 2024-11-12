@@ -1,9 +1,9 @@
-import './MainContent.css'
+import styles from './MainContent.module.css'
 import { Button, Container, Typography } from '@mui/material'
 
 function MainContent() {
   return (
-    <div className="main-content">
+    <div className={styles.main_content}>
       <Typography variant="h1" sx={{ fontSize: '2.125rem' }}>
         Spendro – Empower Your Finances,
         <br /> Achieve Financial Freedom!

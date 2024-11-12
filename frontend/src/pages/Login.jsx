@@ -1,4 +1,4 @@
-import './Login.css'
+import styles from './Login.module.css'
 import Navbar from '../components/Navbar'
 function Login() {
   return (

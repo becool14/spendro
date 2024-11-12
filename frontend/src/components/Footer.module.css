@@ -21,7 +21,7 @@ footer .MuiButton-root {
   }
 
   /* Встановлюємо більшу ширину для контейнера та вказуємо правильний відступ */
-  footer .footer-container {
+  footer .footer_container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -29,7 +29,7 @@ footer .MuiButton-root {
   }
 
   /* Визначаємо ширину для кнопок футера */
-  footer .footer-buttons {
+  footer .footer_buttons {
     display: flex;
     gap: 20px;
     flex-wrap: nowrap; /* Забороняємо перенос на новий рядок */
@@ -42,7 +42,7 @@ footer .MuiButton-root {
     font-size: 18px; /* Збільшення шрифта для мобільних пристроїв */
   }
 
-  footer .footer-container {
+  footer .footer_container {
     flex-direction: column; /* Розташовуємо елементи вертикально на малих екранах */
     text-align: center;
   }

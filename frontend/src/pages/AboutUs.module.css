@@ -6,7 +6,7 @@
   
 }
 
-.about-content {
+.about_content {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@
   justify-content: space-between; /* Вирівнює Navbar, MainContent та Footer по вертикалі */
 }
 
-.text-section {
+.text_section {
   font-size: 1.1rem;
   margin-bottom: 20px;
   color: #cfcfcf;

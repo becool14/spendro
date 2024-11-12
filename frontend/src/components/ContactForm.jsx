@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import { TextField, Button, Typography, Box, Grid } from '@mui/material';
-import './ContactForm.css';
+import styles from './ContactForm.module.css';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -47,12 +47,12 @@ const ContactForm = () => {
   };
 
   return (
-    <Box className="form-container">
-      <Box className="form-box">
-        <Typography variant="h4" className="form-title">
+    <Box className={styles.form_container}>
+      <Box className={styles.form_box}>
+        <Typography variant="h4" className={styles.form_title}>
           Contact Us
         </Typography>
-        <Typography variant="body1" className="form-subtitle">
+        <Typography variant="body1" className={styles.form_subtitle}>
             Fill out the form below and we'll get back to you as soon as possible.
         </Typography>
         <form onSubmit={handleSubmit}>
@@ -66,7 +66,7 @@ const ContactForm = () => {
                 onChange={handleChange}
                 required
                 variant="filled"
-                className="form-field"
+                className={styles.form_field}
               />
             </Grid>
             <Grid item xs={8}>
@@ -79,7 +79,7 @@ const ContactForm = () => {
                 onChange={handleChange}
                 required
                 variant="filled"
-                className="form-field"
+                className={styles.form_field}
               />
             </Grid>
           </Grid>
@@ -94,15 +94,15 @@ const ContactForm = () => {
               variant="outlined"
               multiline
               rows={6}
-              className="form-field"
+              className={styles.form_field}
             />
           </Box>
-          <Button type="submit" className="submit-button" variant="contained">
+          <Button type="submit" className={styles.submit_button} variant="contained">
             Submit
           </Button>
         </form>
         {responseMessage && (
-          <Typography variant="body2" className="response-message">
+          <Typography variant="body2" className={styles.response-message}>
             {responseMessage}
           </Typography>
         )}

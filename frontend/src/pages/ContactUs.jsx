@@ -1,6 +1,6 @@
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
-import './ContactUs.css'
+import styles from './ContactUs.module.css'
 import ContactForm from '../components/ContactForm'
 
 
