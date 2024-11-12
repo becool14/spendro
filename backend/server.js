@@ -1,21 +1,20 @@
-// Entry point of the backend server
-require('dotenv').config();
-const dbconnection = require('./db/connection');
 const express = require('express');
+const bodyParser = require('body-parser');
+const axios = require('axios');
+require('dotenv').config();
+
 const app = express();
-const PORT = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
-app.use(express.json());
+// Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// Route to display the initial message on browser
 app.get('/', (req, res) => {
-  res.send('SPENDRO BACKEND API 555');
+    res.send('SPENDRO BACKEND API');
+  });
+
+// Старт сервера
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
-
-// TODO: Add routes and middleware
-
-app.listen(PORT, () => {
-  console.log(`Server is up and running at http://localhost:${PORT} 🚀`);
-});
-
-

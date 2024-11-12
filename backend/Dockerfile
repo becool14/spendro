@@ -1,20 +1,22 @@
-# Базове Node.js середовище
+# Используем официальный Node.js образ
 FROM node:18-slim
 
-# Встановлення робочої директорії
+# Устанавливаем рабочую директорию внутри контейнера
 WORKDIR /app
 
-# Копіюємо лише файли package.json і package-lock.json для кешування залежностей
+# Копируем package.json и package-lock.json для установки зависимостей
 COPY package*.json ./
 
-# Встановлюємо залежності
+RUN apt-get update
+# Устанавливаем зависимости
 RUN npm install
 
-# Копіюємо весь проект
-COPY . .
+RUN npm install -g nodemon
+# Копируем остальные файлы проекта
+COPY . /app
+#-or-
+# Экспонируем порт
+EXPOSE 5001
 
-# Відкриваємо порт для сервера
-EXPOSE 5000
-
-# Запускаємо сервер у режимі розробки з nodemon для hot-reloading
-CMD ["npm", "run", "dev"]
+# Устанавливаем команду для запуска сервера
+CMD ["npm", "start"]
