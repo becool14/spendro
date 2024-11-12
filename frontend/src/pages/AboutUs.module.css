@@ -1,0 +1,25 @@
+.container {
+  padding: 0;
+  color: #fff;
+  min-height: 100vh; /* Забезпечує, щоб фон займав мінімум всю видиму висоту */
+  background-color: #1e1e1e;
+  
+}
+
+.about_content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Висота на всю сторінку */
+  justify-content: space-between; /* Вирівнює Navbar, MainContent та Footer по вертикалі */
+}
+
+.text_section {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  color: #cfcfcf;
+}
+
+h2, h3 {
+  text-transform: uppercase;
+}
