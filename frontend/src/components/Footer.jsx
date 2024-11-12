@@ -2,6 +2,7 @@
 import './Footer.css'
 import Typography from '@mui/material/Typography'
 import { Box, Button } from '@mui/material'
+import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
@@ -22,9 +23,11 @@ function Footer() {
           <Button>
             <Typography>about us</Typography>
           </Button>
+          <Link to="/contactus">
           <Button>
             <Typography>contact us</Typography>
           </Button>
+          </Link>
           <Button>
             <Typography>FAQ</Typography>
           </Button>

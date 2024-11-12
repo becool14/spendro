@@ -1,0 +1,78 @@
+/* ContactForm.css */
+
+/* Root container */
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #1e1e1e;
+    color: #ffffff;
+  }
+  
+  /* Form box styling */
+  .form-box {
+    background-color: #2e2e2e;
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Typography */
+  .form-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #b0b0b0;
+  }
+  
+  /* Input fields */
+  .form-field {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    
+  }
+  
+  .form-field input,
+  .form-field textarea {
+    background-color: #1e1e1e;
+    color: #ffffff ;
+  }
+  
+  
+  /* Submit button */
+  .submit-button {
+    background-color:#5820BE !important;
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .submit-button:focus {
+    background-color: #8A63D2 !important;
+  }
+  .submit-button:hover {
+    background-color: #301269 !important;
+  }
+  
+
+  body {
+    background-image: none;
+    min-height: 100vh;
+    background-color: #1e1e1e;
+  }
