@@ -9,7 +9,7 @@ function AboutUs() {
   return (
     <div className="container">
       <Navbar />
-      <div className="main-content">
+      <div className="about-content">
         <Typography variant="h2" sx={{ fontSize: '2.5rem', color: '#E6DEF5', marginBottom: '20px' }}>
           About us
         </Typography>
