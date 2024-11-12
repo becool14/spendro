@@ -5,6 +5,7 @@ import theme from './layouts/theme' // Імпортуємо тему
 import Home from './pages/Home'
 import Login from './pages/Login'
 import AboutUs from './pages/AboutUs'
+import ContactUs from './pages/ContactUs'
 import '@fontsource/varela-round'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/aboutUs" element={<AboutUs />} />
+          <Route path="/contactus" element={<ContactUs />} />
         </Routes>
       </Router>
     </ThemeProvider>

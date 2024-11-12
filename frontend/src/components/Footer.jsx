@@ -33,9 +33,11 @@ function Footer() {
               <Typography>about us</Typography>
             </Link>
           </Button>
+          <Link to="/contactus">
           <Button>
             <Typography>contact us</Typography>
           </Button>
+          </Link>
           <Button>
             <Typography>FAQ</Typography>
           </Button>
