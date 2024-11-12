@@ -7,14 +7,18 @@ function Footer() {
   return (
     <footer>
       <Box
+        className="footer-container" // Додали клас для застосування стилів
         sx={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           width: '100%',
+          flexWrap: 'wrap', // Дозволяє елементам обтікати один одного при маленькому екрані
+          padding: '20px', // Додати відступи
         }}
       >
-        <Box sx={{ display: 'flex', gap: 2 }}>
+        {/* Ліва частина футера */}
+        <Box className="footer-buttons" sx={{ display: 'flex', gap: 2 }}>
           <Button>
             <Typography>about us</Typography>
           </Button>
@@ -25,13 +29,15 @@ function Footer() {
             <Typography>FAQ</Typography>
           </Button>
         </Box>
-
-        <Typography sx={{ textAlign: 'center' }}>
-          &copy; 2024 Spendro
-          <br /> All rights reserved
-        </Typography>
-
-        <Box sx={{ display: 'flex', gap: 2 }}>
+        <Box>
+          {/* Текст в центрі */}
+          <Typography sx={{ textAlign: 'center', width: '100%', marginTop: 2 }}>
+            &copy; 2024 Spendro
+            <br /> All rights reserved
+          </Typography>
+        </Box>  
+        {/* Права частина футера */}
+        <Box className="footer-buttons" sx={{ display: 'flex', gap: 2 }}>
           <Button>
             <Typography>TERMS OF SERVICE</Typography>
           </Button>

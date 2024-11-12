@@ -1,10 +1,49 @@
 /* src/components/Footer.css */
 footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
-    color: #fff;
-    position: fixed;
-    bottom: 0;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+
+}
+
+footer .MuiButton-root {
+  font-size: 14px; /* Зменшуємо шрифт на малих екранах */
+}
+
+/* Для великих екранів */
+@media (min-width: 768px) {
+  footer {
+    padding:0 0;
+  }
+
+  footer .MuiButton-root {
+    font-size: 12px; /* Збільшуємо шрифт на більших екранах */
+  }
+
+  /* Встановлюємо більшу ширину для контейнера та вказуємо правильний відступ */
+  footer .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
   }
+
+  /* Визначаємо ширину для кнопок футера */
+  footer .footer-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: nowrap; /* Забороняємо перенос на новий рядок */
+  }
+}
+
+/* Для мобільних екранів */
+@media (max-width: 600px) {
+  footer .MuiButton-root {
+    font-size: 18px; /* Збільшення шрифта для мобільних пристроїв */
+  }
+
+  footer .footer-container {
+    flex-direction: column; /* Розташовуємо елементи вертикально на малих екранах */
+    text-align: center;
+  }
+}
