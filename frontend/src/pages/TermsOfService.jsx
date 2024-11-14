@@ -36,7 +36,7 @@ function TermsOfService(){
                 </Typography>   
                 <Container sx={{ textAlign: 'Left', marginBottom: '70px' }}>
                     <Typography variant="body1" className={styles.text_section}>
-                        To use our services, you must be at least 13 and comply with all applicable laws and regulations. If you are under the age of majority in your jurisdiction, you must have permission from a legal guardian.
+                        To use our services, you must be at least 16 and comply with all applicable laws and regulations. If you are under the age of majority in your jurisdiction, you must have permission from a legal guardian.
                     </Typography>
                 </Container>
                 <Typography variant="h3" sx={{ fontSize: '1.5rem', color: '#E6DEF5', marginBottom: '15px' }}>

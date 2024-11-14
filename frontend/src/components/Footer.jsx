@@ -61,7 +61,9 @@ function Footer() {
             </Link>
           </Button>
           <Button>
-            <Typography>PRIVACY POLICY</Typography>
+            <Link to="/PrivacyPolicy" style={{ textDecoration: 'none', color: 'inherit' }} >
+              <Typography>PRIVACY POLICY</Typography>
+            </Link>
           </Button>
         </Box>
       </Box>

@@ -9,6 +9,7 @@ import ContactUs from './pages/ContactUs'
 import TermsOfService from './pages/TermsOfService'
 import FAQ from './pages/FAQ'
 import '@fontsource/varela-round'
+import PrivacyPolicy from './pages/PrivacyPolicy'
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/TermsOfService" element={<TermsOfService />} />
           <Route path="/FAQ" element={<FAQ/>}/>
+          <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
         </Routes>
       </Router>
     </ThemeProvider>
