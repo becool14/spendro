@@ -1,6 +1,7 @@
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Typography from '@mui/material/Typography';
+import {Link} from 'react-router-dom';
 import { List, ListItem, Container, Button } from '@mui/material';
 
 import styles from './PrivacyPolicy.module.css';
@@ -111,7 +112,7 @@ function PrivacyPolicy(){
                 </Typography>   
                 <Container sx={{ textAlign: 'Left', marginBottom: '70px' }}>
                     <Typography variant="body1" className={styles.text_section}>
-                        If you have questions or concerns about this Privacy Policy, please contact us at following page 
+                        If you have questions or concerns about this Privacy Policy, please contact us at following page: <Button><Link to="/contactus"><Typography variant="body1" className={styles.text_section}>Contact us</Typography></Link></Button>
                     </Typography>
                 </Container>
             </div>

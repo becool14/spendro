@@ -2,6 +2,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import Typography from '@mui/material/Typography';
 import { List, ListItem, Container, Button } from '@mui/material';
+import {Link} from 'react-router-dom'
 
 import styles from './TermsOfService.module.css';
 
@@ -121,7 +122,7 @@ function TermsOfService(){
                 </Typography>   
                 <Container sx={{ textAlign: 'Left', marginBottom: '100px' }}>
                     <Typography variant="body1" className={styles.text_section}>
-                        If you have any questions about these Terms, please contact us.
+                        If you have any questions about these Terms, please contact us at the following page: <Button><Link to="/contactus"><Typography variant="body1" className={styles.text_section}>Contact us</Typography></Link></Button>
                     </Typography>
                 </Container>
             </div>
