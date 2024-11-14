@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import AboutUs from './pages/AboutUs'
 import ContactUs from './pages/ContactUs'
 import TermsOfService from './pages/TermsOfService'
+import FAQ from './pages/FAQ'
 import '@fontsource/varela-round'
 
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/TermsOfService" element={<TermsOfService />} />
+          <Route path="/FAQ" element={<FAQ/>}/>
         </Routes>
       </Router>
     </ThemeProvider>
