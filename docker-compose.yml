@@ -2,10 +2,11 @@ version: '3.8'
 
 services:
   backend:
-    build:
-      context: ./backend
+    build: ./backend
     ports:
-      - '5001:5000'
+      - "5001:5001"
+    networks:
+      - app-network
     env_file:
       - ./backend/.env
     volumes:
@@ -15,12 +16,12 @@ services:
       - mongo
 
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    stdin_open: true
+    build: ./frontend
     ports:
-      - '5173:5173'
+      - "5173:5173"
+    networks:
+      - app-network
+    stdin_open: true
     volumes:
       - './frontend:/app:delegated' # Mount для hot-reloading
       - /app/node_modules
@@ -37,3 +38,7 @@ services:
 
 volumes:
   mongo-data:
+
+networks:
+  app-network:
+    driver: bridge

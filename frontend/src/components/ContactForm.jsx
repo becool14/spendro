@@ -1,5 +1,6 @@
-import {useState} from 'react';
-import { TextField, Button, Typography, Box, Grid } from '@mui/material';
+import { useState } from 'react';
+import { TextField, Button, Typography, Box } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import styles from './ContactForm.module.css';
 
 const ContactForm = () => {
@@ -8,7 +9,7 @@ const ContactForm = () => {
     email: '',
     message: '',
   });
-  
+
   const [responseMessage, setResponseMessage] = useState('');
 
   const handleChange = (e) => {
@@ -20,29 +21,26 @@ const ContactForm = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent the default form submission
+    e.preventDefault();
 
     try {
-      // Send a POST request to the backend server
-      const response = await fetch('http://localhost:5000/api/backend/models/contactmessage.model', {
+      const response = await fetch('http://localhost:5001/api/contact/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData), // Send the form data as JSON
+        body: JSON.stringify(formData),
       });
-      
-      // Check if the response is successful
-      if (response.ok) {
-        const data = await response.json(); // Parse the JSON response
-        setResponseMessage(data.message); // Display success message
-      } else {
-        throw new Error('Failed to submit the form');
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
       }
+
+      const data = await response.json();
+      setResponseMessage(data.message);
     } catch (error) {
-      // Handle errors
-      setResponseMessage('There was an error submitting the form.');
       console.error('Error submitting form:', error);
+      setResponseMessage('There was an error submitting the form.');
     }
   };
 
@@ -53,11 +51,11 @@ const ContactForm = () => {
           Contact Us
         </Typography>
         <Typography variant="body1" className={styles.form_subtitle}>
-            Fill out the form below and we'll get back to you as soon as possible.
+          Fill out the form below and we&apos;ll get back to you as soon as possible.
         </Typography>
         <form onSubmit={handleSubmit}>
           <Grid container spacing={2} mb={5}>
-            <Grid item xs={4}>
+            <Grid size={4}>
               <TextField
                 fullWidth
                 label="Name"
@@ -69,7 +67,7 @@ const ContactForm = () => {
                 className={styles.form_field}
               />
             </Grid>
-            <Grid item xs={8}>
+            <Grid size={8}>
               <TextField
                 fullWidth
                 label="E-mail"
@@ -102,7 +100,7 @@ const ContactForm = () => {
           </Button>
         </form>
         {responseMessage && (
-          <Typography variant="body2" className={styles.response-message}>
+          <Typography variant="body2" className={styles.response_message}>
             {responseMessage}
           </Typography>
         )}
