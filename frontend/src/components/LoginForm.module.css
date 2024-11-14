@@ -1,0 +1,50 @@
+.right_content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 35%;
+    height: 100vh;
+    background-color: #e6def5;
+    border-radius: 15px;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .form_field {
+    background-color: #e6def5;
+    color: #000000;
+    margin-bottom: 1rem;
+  }
+  
+  .submit_button {
+    background-color: #5820be !important;
+    color: white !important;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .signup_link {
+    color: #5820be !important;
+  }
+  
+  
+  /* Покращення для форми */
+  input[type='text'],
+  input[type='email'],
+  input[type='password'],
+  textarea {
+    width: 100%;
+    border-color: purple !important;
+  }
+  
+  /* Вирівнювання "Sign Up" і тексту в одну лінію */
+  .signup_link {
+    display: inline-block;
+    cursor: pointer;
+  }

@@ -1,0 +1,27 @@
+.main_content {
+    position: absolute; /* Забезпечує, що бокс буде знаходитися на лівому боці */
+    top: 0; /* Початок з верхньої частини сторінки */
+    left: 0; /* Початок з лівої частини сторінки */
+    width: 65%; /* Задаємо ширину 70% */
+    height: 100vh; /* Висота 100% від висоти екрану */
+    background-image: url('../assets/backgrounds/LoginRegisterBackground.png'); /* Шлях до зображення */
+    background-size: cover; /* Масштабування зображення для покриття всього контейнера */
+    background-repeat: no-repeat; /* Забороняє повторення зображення */
+    background-position: center; /* Центрування зображення */
+    background-attachment: fixed; /* Фіксування зображення для паралакс-ефекту */
+    background-color: #1e1e1e; /* Колір фону на випадок, якщо зображення не завантажилось */
+    border-radius: 15px; /* Заокруглені кути */
+    overflow: hidden; /* Забороняє вихід вмісту за межі контейнера */
+
+    display: flex; /* Використовуємо Flexbox для вирівнювання */
+    align-items: center; /* Вертикальне вирівнювання по центру */
+    justify-content: flex-start; /* Горизонтальне вирівнювання по лівому краю */
+    padding-left: 20px; /* Відступ зліва для тексту */
+}
+
+.centerText {
+    font-size: 40; /* Збільшуємо шрифт (можна змінити на потрібний розмір) */
+    color: #fff; /* Колір тексту */
+    text-align: left; /* Горизонтальне вирівнювання тексту по лівому краю */
+    font-weight: bold;
+}
