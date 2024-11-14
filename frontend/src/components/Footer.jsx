@@ -38,9 +38,11 @@ function Footer() {
             <Typography>contact us</Typography>
           </Button>
           </Link>
+          <Link to="/FAQ">
           <Button>
             <Typography>FAQ</Typography>
           </Button>
+          </Link>
         </Box>
         
         {/* Текст в центрі */}
@@ -54,10 +56,14 @@ function Footer() {
         {/* Права частина футера */}
         <Box sx={{ display: 'flex', gap: 2 }}>
           <Button>
-            <Typography>TERMS OF SERVICE</Typography>
+            <Link to="/TermsOfService" style={{ textDecoration: 'none', color: 'inherit' }} >
+              <Typography>TERMS OF SERVICE</Typography>
+            </Link>
           </Button>
           <Button>
-            <Typography>PRIVACY POLICY</Typography>
+            <Link to="/PrivacyPolicy" style={{ textDecoration: 'none', color: 'inherit' }} >
+              <Typography>PRIVACY POLICY</Typography>
+            </Link>
           </Button>
         </Box>
       </Box>

@@ -6,7 +6,11 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import AboutUs from './pages/AboutUs'
 import ContactUs from './pages/ContactUs'
+import TermsOfService from './pages/TermsOfService'
+import FAQ from './pages/FAQ'
 import '@fontsource/varela-round'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+
 
 function App() {
   return (
@@ -17,6 +21,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/aboutUs" element={<AboutUs />} />
           <Route path="/contactus" element={<ContactUs />} />
+          <Route path="/TermsOfService" element={<TermsOfService />} />
+          <Route path="/FAQ" element={<FAQ/>}/>
+          <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
         </Routes>
       </Router>
     </ThemeProvider>
