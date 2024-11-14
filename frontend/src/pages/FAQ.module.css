@@ -1,0 +1,9 @@
+.main_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрування по вертикалі */
+    align-items: center; /* Центрування по горизонталі */
+    height: 100vh; /* Висота на всю сторінку */
+    text-align: center; /* Центрування тексту всередині */
+}
+  

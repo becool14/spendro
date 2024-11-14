@@ -38,9 +38,11 @@ function Footer() {
             <Typography>contact us</Typography>
           </Button>
           </Link>
+          <Link to="/FAQ">
           <Button>
             <Typography>FAQ</Typography>
           </Button>
+          </Link>
         </Box>
         
         {/* Текст в центрі */}
