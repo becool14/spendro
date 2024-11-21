@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import ContactForm_Routes from './routes/ContactForm_route.js'; // Corrected import statement
+import MonoBankAPI_route from './routes/MonobankAPI_route.js';
 
 dotenv.config();
 
@@ -12,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/contact", ContactForm_Routes);
+app.use("/api/Client", MonoBankAPI_route);
 
 // Basic route
 app.get('/', (req, res) => {
