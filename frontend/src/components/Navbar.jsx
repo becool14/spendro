@@ -65,8 +65,8 @@ function ResponsiveAppBar() {
                   <Typography textAlign="center">login</Typography>
                 </Link>
               </MenuItem>
-              <MenuItem>
-                <Link to="/" style={{ textDecoration: 'none', color: 'primary' }}>
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link to="/signup" style={{ textDecoration: 'none', color: 'primary' }}>
                   <Typography textAlign="center">sign up</Typography>
                 </Link>
               </MenuItem>
@@ -76,7 +76,7 @@ function ResponsiveAppBar() {
           {/* Статичне меню для великих екранів */}
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 2 }}>
             <Button component={Link} to="/login" color="inherit">login</Button>
-            <Button component={Link} to="/" color="inherit">sign up</Button>
+            <Button component={Link} to="/signup" color="inherit">sign up</Button>
           </Box>
 
         </Toolbar>
