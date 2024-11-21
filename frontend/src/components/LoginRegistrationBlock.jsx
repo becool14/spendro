@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Box,  Typography } from '@mui/material';
 import styles from './LoginRegistrationBlock.module.css'
 function LoginRegistrationBlock (){
     return(

@@ -11,6 +11,7 @@ import TermsOfService from './pages/TermsOfService'
 import FAQ from './pages/FAQ'
 import '@fontsource/varela-round'
 import PrivacyPolicy from './pages/PrivacyPolicy'
+import Main from './pages/Main'
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
           <Route path="/TermsOfService" element={<TermsOfService />} />
           <Route path="/FAQ" element={<FAQ/>}/>
           <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+          <Route path="/Main" element={<Main />} />
         </Routes>
       </Router>
     </ThemeProvider>

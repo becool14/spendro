@@ -1,0 +1,121 @@
+.navbar {
+  background-color: #1c1c1c !important;
+  border-radius: 1.25rem; /* 20px to rem */
+}
+
+.navbarToolbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbarTop {
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding: 0.625rem 1.25rem; /* 10px 20px to rem */
+}
+
+.navbarIcons {
+  align-items: left;
+  display: flex;
+  gap: 0.625rem; /* 10px to rem */
+}
+
+.navbarCenter {
+  position: absolute;
+  top: 50% ;
+  left: 50% ;
+  transform: translate(-50%, -50%); 
+  display: flex;
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  gap: 0.625rem; /* Optional: spacing between items */
+}
+
+
+.logo {
+  height: 2rem; /* Adjust the height as needed */
+  margin-right: 0.625rem; /* 10px to rem */
+}
+
+.navbarRight {
+  display: flex;
+  gap: 0.625rem; /* 10px to rem */
+}
+
+.navbarText {
+  position: relative;
+  text-align: right;
+  color: white !important;
+}
+
+.navbarTextSecondary {
+  position: relative;
+  color: gray !important;
+}
+
+.navbarLogo {
+  font-weight: bold;
+  color: white !important;
+}
+
+.navbarBottom {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  padding: 0.625rem 0; /* 10px to rem */
+  border-top: 0.0625rem solid #9C9C9C; /* 1px to rem */
+}
+
+.navbarLinks {
+  display: flex;
+  gap: 1.25rem; /* 20px to rem */
+}
+
+.navbarButton {
+  color: white !important;
+}
+
+.iconButton {
+  color: white !important;
+}
+
+.avatar {
+  background-color: #888 !important;
+}
+
+.menuButton {
+  display: none;
+}
+
+.drawerButton {
+  color: white !important;
+  text-transform: lowercase !important;
+  font-weight: bold;
+  padding: 0.75rem 1.25rem; /* 12px 20px to rem */
+  border-bottom: 0.0625rem solid #444; /* 1px to rem */
+}
+
+@media (max-width: 750px) {
+  .navbarTextPrimary,
+  .navbarTextSecondary {
+    display: none;
+  }
+
+  .navbarLinks {
+    display: none;
+  }
+
+  .menuButton {
+    display: block;
+  }
+}
+
+@media (min-width: 751px) {
+  .menuButton {
+    display: none !important;
+  }
+}
