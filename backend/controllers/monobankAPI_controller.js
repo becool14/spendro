@@ -25,7 +25,7 @@ const getClientInfo = async (req, res) => {
 
     catch (error) {
         console.error(error.massage);
-        res.status(500).json({ error: 'Error with monobank API'})
+        res.status(500).json({ error: 'Error with monobank AP'})
     }
 
 }
