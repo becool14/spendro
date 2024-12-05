@@ -11,7 +11,10 @@ const theme = createTheme({
     button: {
       textTransform: 'none',  // Зберігаємо регістр кнопок
     },
+  backgroundColor: {
+    primary: '#121212',  
     // Інші стилі
+  },
   },
 });
 

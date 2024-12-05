@@ -27,7 +27,7 @@ function App() {
           <Route path="/TermsOfService" element={<TermsOfService />} />
           <Route path="/FAQ" element={<FAQ/>}/>
           <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
-          <Route path="/Main" element={<Main />} />
+          <Route path="/main" element={<Main />} />
         </Routes>
       </Router>
     </ThemeProvider>

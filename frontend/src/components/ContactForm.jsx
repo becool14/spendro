@@ -63,7 +63,7 @@ const ContactForm = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                variant="filled"
+                variant="outlined"
                 className={styles.form_field}
               />
             </Grid>
@@ -76,7 +76,7 @@ const ContactForm = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                variant="filled"
+                variant="outlined"
                 className={styles.form_field}
               />
             </Grid>

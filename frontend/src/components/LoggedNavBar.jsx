@@ -6,7 +6,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import MenuIcon from "@mui/icons-material/Menu";
 import LogoWhite from '../assets/icons/LogoWhite';
-
+import { Link } from 'react-router-dom';
 
 const LoggedNavbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -49,8 +49,9 @@ const LoggedNavbar = () => {
             </IconButton>
           </Box>
           <Box className={styles.navbarCenter}>
+          <Link to="/main">
             <LogoWhite />
-           
+           </Link>
           </Box>
           <Box className={styles.navbarRight}>
             <Box className={styles.navbarText}>
