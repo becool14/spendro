@@ -8,9 +8,9 @@ const BalanceWidget = () => {
 
   useEffect(() => {
     // Получение данных с backend
-    axios.get('http://localhost:5001/balance')
+    axios.get('http://localhost:5001/api/mono/balance')
       .then(response => {
-        setBalance(response.data.balance / 100);
+        setBalance(response.data.balance);
       })
       .catch(error => {
         console.error("Ошибка при получении баланса:", error);
@@ -33,10 +33,10 @@ const BalanceWidget = () => {
         mt: '6px'
       }}
     >
-      <Typography variant="subtitle1" sx={{ opacity: 0.7 }}>
+      <Typography variant="subtitle1" sx={{ opacity: 0.7, color: '#9C9C9C' }}>
         total balance
       </Typography>
-      <Typography variant="h4" sx={{ fontWeight: 'bold' }}>
+      <Typography variant="h4" sx={{ fontWeight: 'bold', color: '#F0EBFA' }}>
         ₴{balance.toLocaleString()}
       </Typography>
     </Box>

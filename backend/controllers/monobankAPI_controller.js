@@ -1,14 +1,17 @@
 import fetch from 'node-fetch';
 import dotenv from 'dotenv';
 dotenv.config();
+   // Время жизни кэша (1 минута)
 
 let cachedClientInfo = null;  // Переменная для хранения кэша
 let cacheTimestamp = 0;       // Время последнего обновления кэша (в миллисекундах)
-const CACHE_TTL = 60000;      // Время жизни кэша (1 минута)
+const CACHE_TTL = 3600000;   
 
 const getClientInfo = async (req, res) => {
     const MONOBANK_API_BASE = 'https://api.monobank.ua';
     const token = process.env.MONOBANK_TOKEN;
+    
+   
 
     try {
         const currentTime = Date.now();
@@ -29,11 +32,12 @@ const getClientInfo = async (req, res) => {
             }
 
             const data = await response.json(); // Получаем данные из API
+
             cachedClientInfo = {
                 name: data.name,
                 accounts: data.accounts.map(account => ({
                     accountId: account.id,
-                    balance: account.balance,
+                    balance: account.balance / 100,
                     currency: account.currencyCode,
                     pan: account.maskedPan,
                 })),
@@ -56,4 +60,4 @@ const getClientInfo = async (req, res) => {
     }
 };
 
-export { getClientInfo };
+export {getClientInfo};
