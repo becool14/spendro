@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { AppBar, Box, Button, Toolbar, IconButton, Typography, Menu, Container, Avatar, Tooltip, MenuItem, Switch, ListItemText } from '@mui/material';
-import { Menu as MenuIcon, Logout as LogoutIcon } from '@mui/icons-material';
+import { Menu as MenuIcon, Logout as LogoutIcon, Brightness4 as Brightness4Icon } from '@mui/icons-material';
 import styles from './LoggedNavBar.module.css';
 import { Link } from 'react-router-dom';
 import LogoWhite from '../assets/icons/LogoWhite';
-import { Link } from 'react-router-dom';
 import NotificationIcon from '../assets/icons/NotificationIcon';
 
 const settings = ['settings', 'dark mode', 'notifications', 'log out'];
@@ -37,28 +36,6 @@ function LoggedNavbar() {
 
   return (
     <AppBar position="static" className={styles.navbar}>
-      <Toolbar className={styles.navbarToolbar}>
-        {/* Top section: logo, notifications, theme icons, greeting, and avatar */}
-        <Box className={styles.navbarTop}>
-          <Box alignContent={'left'}>
-            <IconButton color="inherit" className={styles.iconButton}>
-              <NotificationsIcon />
-            </IconButton>
-            <IconButton color="inherit" className={styles.iconButton}>
-              <Brightness4Icon />
-            </IconButton>
-          </Box>
-          <Box className={styles.navbarCenter}>
-          <Link to="/main">
-            <LogoWhite />
-           </Link>
-          </Box>
-          <Box className={styles.navbarRight}>
-            <Box className={styles.navbarText}>
-              <Typography variant="body1" className={styles.navbarTextPrimary}>Hello, your Name</Typography>
-              <Typography variant="body2" className={styles.navbarTextSecondary}>
-                example@example.com
-              </Typography>
       <Container maxWidth="xl">
         <Toolbar disableGutters className={styles.navbarToolbar}>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
@@ -90,7 +67,6 @@ function LoggedNavbar() {
                   <MenuIcon />
                 </IconButton>
                 <Menu
-                
                   id="menu-appbar"
                   anchorEl={anchorElNav}
                   anchorOrigin={{
@@ -104,14 +80,7 @@ function LoggedNavbar() {
                   }}
                   open={Boolean(anchorElNav)}
                   onClose={handleCloseNavMenu}
-                  sx={{
-                    '& .MuiMenu-paper': {
-                      backgroundColor: '#2E2E2E',
-                      color: 'white',
-                      borderRadius: '8px',
-                      padding: '8px',
-                    },
-                     display: { xs: 'block', md: 'none' } }}
+                  sx={{ display: { xs: 'block', md: 'none' } }}
                 >
                   {navItems.map((item) => (
                     <MenuItem key={item} onClick={handleCloseNavMenu}>
@@ -142,11 +111,10 @@ function LoggedNavbar() {
                   ))}
                 </Menu>
               </Box>
-              
               <Box sx={{ flexGrow: 1 }} />
-              <Box sx={{ alignItems: 'center' , display: { xs: 'none', md: 'flex' }, ml: 2 }}>
+              <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
                 <IconButton color="inherit" sx={{ width: '35.2px', height: '39px', marginTop: 'auto', marginBottom: 'auto' }}>
-                  <NotificationIcon sx={{ width: '100%', height: '100%' }} />
+                  <NotificationIcon sx={{ width: '27.2px', height: '32px' }} />
                 </IconButton>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -195,9 +163,7 @@ function LoggedNavbar() {
                         />
                       )}
                       {setting === 'log out' && (
-                        <LogoutIcon sx={{ ml: 1 }} 
-                        />
-                        
+                        <LogoutIcon sx={{ ml: 1 }} />
                       )}
                     </MenuItem>
                   ))}
