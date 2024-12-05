@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/contact", ContactForm_Routes);
-app.use("/api/Client", MonoBankAPI_route);
+app.use(MonoBankAPI_route);
 
 // Basic route
 app.get('/', (req, res) => {

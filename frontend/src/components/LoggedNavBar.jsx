@@ -4,6 +4,7 @@ import { Menu as MenuIcon, Logout as LogoutIcon } from '@mui/icons-material';
 import styles from './LoggedNavBar.module.css';
 import { Link } from 'react-router-dom';
 import LogoWhite from '../assets/icons/LogoWhite';
+import { Link } from 'react-router-dom';
 import NotificationIcon from '../assets/icons/NotificationIcon';
 
 const settings = ['settings', 'dark mode', 'notifications', 'log out'];
@@ -36,6 +37,28 @@ function LoggedNavbar() {
 
   return (
     <AppBar position="static" className={styles.navbar}>
+      <Toolbar className={styles.navbarToolbar}>
+        {/* Top section: logo, notifications, theme icons, greeting, and avatar */}
+        <Box className={styles.navbarTop}>
+          <Box alignContent={'left'}>
+            <IconButton color="inherit" className={styles.iconButton}>
+              <NotificationsIcon />
+            </IconButton>
+            <IconButton color="inherit" className={styles.iconButton}>
+              <Brightness4Icon />
+            </IconButton>
+          </Box>
+          <Box className={styles.navbarCenter}>
+          <Link to="/main">
+            <LogoWhite />
+           </Link>
+          </Box>
+          <Box className={styles.navbarRight}>
+            <Box className={styles.navbarText}>
+              <Typography variant="body1" className={styles.navbarTextPrimary}>Hello, your Name</Typography>
+              <Typography variant="body2" className={styles.navbarTextSecondary}>
+                example@example.com
+              </Typography>
       <Container maxWidth="xl">
         <Toolbar disableGutters className={styles.navbarToolbar}>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
