@@ -2,38 +2,37 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import User from '../models/User.js';
 
-// Реєстрація користувача
 export const registerUser = async (req, res) => {
   const { fullName, email, password } = req.body;
 
   try {
-    // Перевірка, чи вже існує користувач
+    if (!fullName || !email || !password) {
+      return res.status(400).json({ message: 'All fields are required' });
+    }
+
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: 'User already exists' });
     }
 
-    // Створення нового користувача
+    const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({
       fullName,
       email,
-      password
+      password: hashedPassword
     });
 
-    // Збереження користувача в базі
     await newUser.save();
 
-    // Генерація JWT токену
     const token = jwt.sign(
-      { userId: newUser._id },  // Payload токену
-      process.env.JWT_SECRET,   // Ваш секретний ключ
-      { expiresIn: '1h' }       // Термін дії токену
+      { userId: newUser._id },
+      process.env.JWT_SECRET,
+      { expiresIn: '18h' }
     );
 
-    // Надсилання токену на фронтенд
     res.status(201).json({
       message: 'User registered successfully',
-      token,  // Токен
+      token,
       user: {
         id: newUser._id,
         fullName: newUser.fullName,
@@ -41,7 +40,10 @@ export const registerUser = async (req, res) => {
       }
     });
   } catch (error) {
-    console.error(error);
+    console.error('Error during user registration:', error);
+    if (error.code === 11000) {
+      return res.status(400).json({ message: 'Email already exists' });
+    }
     res.status(500).json({ message: 'Server error' });
   }
 };
