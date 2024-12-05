@@ -3,7 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import ContactForm_Routes from './routes/ContactForm_route.js'; // Corrected import statement
 import MonoBankAPI_route from './routes/MonobankAPI_route.js';
-import authRoutes from './routes/User_Route.js'; // Імпорт маршруту для користувачів
+import authRoutes from './routes/User_Route.js';
 import mongoose from 'mongoose';
 import authenticateToken from './controllers/authenticateToken.js';
 

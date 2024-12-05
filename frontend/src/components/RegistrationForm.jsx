@@ -27,11 +27,10 @@ function RegistrationForm() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Зупиняє стандартну поведінку форми
+    e.preventDefault(); 
     setErrorMessage('');
     setSuccessMessage('');
   
-    // Перевірки даних
     if (formData.password !== formData.confirmPassword) {
       setErrorMessage('Passwords do not match');
       return;

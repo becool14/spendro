@@ -1,4 +1,5 @@
 import { isTokenExpired } from './authUtils';
+import { Navigate } from 'react-router-dom';
 
 const BlockedForLoggedIn = ({ children }) => {
     const token = localStorage.getItem('token');

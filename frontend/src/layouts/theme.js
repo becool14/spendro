@@ -1,19 +1,18 @@
 // src/layouts/theme.js
 import { createTheme } from '@mui/material/styles';
-import '@fontsource/varela-round'; // імпортуємо Varela Round
+import '@fontsource/varela-round'; 
 
 const theme = createTheme({
   typography: {
     fontFamily: "'Varela Round', sans-serif",
     allVariants: {
-      color: 'white', // Це задасть колір для всіх варіантів тексту
+      color: 'white', 
     },
     button: {
-      textTransform: 'none',  // Зберігаємо регістр кнопок
+      textTransform: 'none',  
     },
   backgroundColor: {
     primary: '#121212',  
-    // Інші стилі
   },
   },
 });

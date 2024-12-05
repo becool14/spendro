@@ -9,7 +9,7 @@ function Footer() {
     <Box
       component="footer"
       sx={{
-        mt: 'auto', // Додає верхній відступ автоматично для зміщення футера вниз
+        mt: 'auto', 
         width: '100%',
         backgroundColor: '#333',
         color: '#fff',
@@ -26,7 +26,7 @@ function Footer() {
           padding: '20px',
         }}
       >
-        {/* Ліва частина футера */}
+        {/* Left part of footer */}
         <Box sx={{ display: 'flex', gap: 2 }}>
           <Button>
             <Link to="/aboutUs" style={{ textDecoration: 'none', color: 'inherit' }}>
@@ -45,7 +45,7 @@ function Footer() {
           </Link>
         </Box>
         
-        {/* Текст в центрі */}
+        {/* Text in the center */}
         <Box>
           <Typography sx={{ textAlign: 'center', width: '100%' }}>
             &copy; 2024 Spendro
@@ -53,7 +53,7 @@ function Footer() {
           </Typography>
         </Box>
         
-        {/* Права частина футера */}
+        {/* Right part of the footer */}
         <Box sx={{ display: 'flex', gap: 2 }}>
           <Button>
             <Link to="/TermsOfService" style={{ textDecoration: 'none', color: 'inherit' }} >

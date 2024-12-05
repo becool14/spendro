@@ -1,15 +1,15 @@
 // src/auth/authUtils.js
 export const isTokenExpired = (token) => {
-  if (!token) return true; // Якщо токена немає, вважаємо його недійсним
+  if (!token) return true; 
 
   try {
-    const [, payload] = token.split('.'); // Другий сегмент — це payload
-    const decodedPayload = JSON.parse(atob(payload)); // Розшифровуємо payload
-    const currentTime = Math.floor(Date.now() / 1000); // Поточний час у секундах
+    const [, payload] = token.split('.'); 
+    const decodedPayload = JSON.parse(atob(payload)); 
+    const currentTime = Math.floor(Date.now() / 1000);
 
-    return decodedPayload.exp < currentTime; // true, якщо токен прострочений
+    return decodedPayload.exp < currentTime; 
   } catch (error) {
     console.error('Failed to decode token:', error);
-    return true; // Якщо токен неможливо розшифрувати, вважаємо його недійсним
+    return true; 
   }
 };
