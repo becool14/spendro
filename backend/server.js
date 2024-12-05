@@ -3,9 +3,9 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import ContactForm_Routes from './routes/ContactForm_route.js'; // Corrected import statement
 import MonoBankAPI_route from './routes/MonobankAPI_route.js';
-import ContactForm_Routes from './routes/ContactForm_route.js';
 import authRoutes from './routes/User_Route.js'; // Імпорт маршруту для користувачів
 import mongoose from 'mongoose';
+import authenticateToken from './controllers/authenticateToken.js';
 
 dotenv.config();
 
@@ -24,9 +24,9 @@ mongoose.connect(mongoURI)
 app.use(cors());
 app.use(express.json());
 
-// Підключення маршрутів
+// Working routes
 app.use("/api/contact", ContactForm_Routes);
-app.use("/api/Client", MonoBankAPI_route);
+app.use("/api/Client", authenticateToken, MonoBankAPI_route);
 app.use('/api/auth', authRoutes);
 
 // Basic route

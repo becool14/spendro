@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './LoginForm.module.css';
 
 function RegistrationForm() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -26,17 +27,16 @@ function RegistrationForm() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Зупиняє стандартну поведінку форми
     setErrorMessage('');
     setSuccessMessage('');
   
-    // Перевірка збігу паролів
+    // Перевірки даних
     if (formData.password !== formData.confirmPassword) {
       setErrorMessage('Passwords do not match');
       return;
     }
   
-    // Перевірка формату email
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       setErrorMessage('Invalid email address');
       return;
@@ -45,9 +45,7 @@ function RegistrationForm() {
     try {
       const response = await fetch('http://localhost:5001/api/auth/register', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           fullName: formData.name,
           email: formData.email,
@@ -58,10 +56,8 @@ function RegistrationForm() {
       if (response.ok) {
         const data = await response.json();
         setSuccessMessage('Registration successful!');
-        localStorage.setItem('token', data.token); // Збереження токена
-        console.log('JWT Token:', data.token);
-        setSuccessMessage('Registration successful!');
-        setTimeout(() => useNavigate('/Dashboard'), 2000); // Використовуйте useNavigate
+        localStorage.setItem('token', data.token);
+        setTimeout(() => navigate('/main'), 2000);
       } else {
         const errorData = await response.json();
         setErrorMessage(errorData.message || 'Registration failed');
@@ -71,6 +67,7 @@ function RegistrationForm() {
       console.error(error);
     }
   };
+  
   
 
   return (
