@@ -27,7 +27,7 @@ app.use(express.json());
 // Working routes
 app.use("/api/contact", ContactForm_Routes);
 app.use(MonoBankAPI_route);
-
+app.use("/api/auth", authRoutes);
 // Basic route
 app.get('/', (req, res) => {
   res.send('SPENDRO BACKEND API');
