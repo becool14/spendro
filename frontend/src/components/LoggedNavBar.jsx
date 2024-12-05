@@ -1,88 +1,191 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from "react";
-import styles from "./LoggedNavBar.module.css";
-import { AppBar, Toolbar, IconButton, Avatar, Button, Typography, Box, Drawer, List, ListItem, ListItemText } from "@mui/material";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import MenuIcon from "@mui/icons-material/Menu";
+import * as React from 'react';
+import { AppBar, Box, Button, Toolbar, IconButton, Typography, Menu, Container, Avatar, Tooltip, MenuItem, Switch, ListItemText } from '@mui/material';
+import { Menu as MenuIcon, Logout as LogoutIcon } from '@mui/icons-material';
+import styles from './LoggedNavBar.module.css';
+import { Link } from 'react-router-dom';
 import LogoWhite from '../assets/icons/LogoWhite';
+import NotificationIcon from '../assets/icons/NotificationIcon';
 
+const settings = ['settings', 'dark mode', 'notifications', 'log out'];
+const navItems = ['categories', 'budgets', 'all transactions', 'goals', 'connected accounts'];
 
-const LoggedNavbar = () => {
-  const [drawerOpen, setDrawerOpen] = useState(false);
+function LoggedNavbar() {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [darkMode, setDarkMode] = React.useState(false); // состояние переключателя
 
-  const toggleDrawer = (open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-    setDrawerOpen(open);
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
   };
 
-  const drawerList = () => (
-    <Box
-      sx={{ width: 250, backgroundColor: '#1c1c1c', height: '100%'}}
-      role="presentation"
-      onClick={toggleDrawer(false)}
-      onKeyDown={toggleDrawer(false)}
-    >
-      <List>
-        {['categories', 'budgets', 'all transactions', 'goals', 'connected accounts', 'settings'].map((text) => (
-          <ListItem button key={text} className={styles.drawerButton}>
-            <ListItemText primary={text} sx={{ color: 'white' }} />
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
+  const handleToggleDarkMode = () => {
+    setDarkMode((prev) => !prev);
+  };
 
   return (
     <AppBar position="static" className={styles.navbar}>
-      <Toolbar className={styles.navbarToolbar}>
-        {/* Top section: logo, notifications, theme icons, greeting, and avatar */}
-        <Box className={styles.navbarTop}>
-          <Box alignContent={'left'}>
-            <IconButton color="inherit" className={styles.iconButton}>
-              <NotificationsIcon />
-            </IconButton>
-            <IconButton color="inherit" className={styles.iconButton}>
-              <Brightness4Icon />
-            </IconButton>
-          </Box>
-          <Box className={styles.navbarCenter}>
-            <LogoWhite />
-           
-          </Box>
-          <Box className={styles.navbarRight}>
-            <Box className={styles.navbarText}>
-              <Typography variant="body1" className={styles.navbarTextPrimary}>Hello, your Name</Typography>
-              <Typography variant="body2" className={styles.navbarTextSecondary}>
-                example@example.com
-              </Typography>
+      <Container maxWidth="xl">
+        <Toolbar disableGutters className={styles.navbarToolbar}>
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <Link to="/main" style={{ textDecoration: 'none' }}>
+                <Box sx={{ width: '43px', height: '37.5px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <LogoWhite style={{ width: '100%', height: '100%' }} />
+                </Box>
+              </Link>
+              <Box sx={{ display: { xs: 'none', md: 'flex' }, ml: 2 }}>
+                {navItems.map((item) => (
+                  <Button key={item} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block', margin: '14px' }}>
+                    {item}
+                  </Button>
+                ))}
+              </Box>
             </Box>
-            <Avatar alt="Your Avatar" className={styles.avatar} />
-          </Box>
-        </Box>
 
-        {/* Bottom section: navigation links */}
-        <Box className={styles.navbarBottom}>
-          <Box className={styles.navbarLinks}>
-            <Button color="inherit" className={styles.navbarButton}>categories</Button>
-            <Button color="inherit" className={styles.navbarButton}>budgets</Button>
-            <Button color="inherit" className={styles.navbarButton}>all transactions</Button>
-            <Button color="inherit" className={styles.navbarButton}>goals</Button>
-            <Button color="inherit" className={styles.navbarButton}>connected accounts</Button>
-            <Button color="inherit" className={styles.navbarButton}>settings</Button>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+                <IconButton
+                  size="large"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleOpenNavMenu}
+                  color="inherit"
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Menu
+                
+                  id="menu-appbar"
+                  anchorEl={anchorElNav}
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'left',
+                  }}
+                  open={Boolean(anchorElNav)}
+                  onClose={handleCloseNavMenu}
+                  sx={{
+                    '& .MuiMenu-paper': {
+                      backgroundColor: '#2E2E2E',
+                      color: 'white',
+                      borderRadius: '8px',
+                      padding: '8px',
+                    },
+                     display: { xs: 'block', md: 'none' } }}
+                >
+                  {navItems.map((item) => (
+                    <MenuItem key={item} onClick={handleCloseNavMenu}>
+                      <Typography sx={{ textAlign: 'center' }}>{item}</Typography>
+                    </MenuItem>
+                  ))}
+                  {settings.map((setting) => (
+                    <MenuItem
+                      key={setting}
+                      sx={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        color: 'white',
+                      }}
+                    >
+                      <ListItemText primary={setting} />
+                      {setting === 'dark mode' && (
+                        <Switch 
+                        checked={darkMode} 
+                        onChange={handleToggleDarkMode} 
+                        />
+                      )}
+                      {setting === 'log out' && (
+                        <LogoutIcon sx={{ ml: 1 }} />
+                      )}
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
+              
+              <Box sx={{ flexGrow: 1 }} />
+              <Box sx={{ alignItems: 'center' , display: { xs: 'none', md: 'flex' }, ml: 2 }}>
+                <IconButton color="inherit" sx={{ width: '35.2px', height: '39px', marginTop: 'auto', marginBottom: 'auto' }}>
+                  <NotificationIcon sx={{ width: '100%', height: '100%' }} />
+                </IconButton>
+                <Tooltip title="Open settings">
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                    <Avatar alt="User Avatar" src="/static/images/avatar/2.jpg" />
+                  </IconButton>
+                </Tooltip>
+                <Menu
+                  sx={{
+                    mt: '45px',
+                    '& .MuiMenu-paper': {
+                      backgroundColor: '#2E2E2E',
+                      color: 'white',
+                      borderRadius: '8px',
+                      padding: '8px',
+                    },
+                  }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  {settings.map((setting) => (
+                    <MenuItem
+                      key={setting}
+                      sx={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        color: 'white',
+                      }}
+                    >
+                      <ListItemText primary={setting} />
+                      {setting === 'dark mode' && (
+                        <Switch 
+                        checked={darkMode} 
+                        onChange={handleToggleDarkMode} 
+                        />
+                      )}
+                      {setting === 'log out' && (
+                        <LogoutIcon sx={{ ml: 1 }} 
+                        />
+                        
+                      )}
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
+            </Box>
           </Box>
-          <IconButton color="inherit" className={styles.menuButton} onClick={toggleDrawer(true)}>
-            <MenuIcon />
-          </IconButton>
-          <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer(false)}>
-            {drawerList()}
-          </Drawer>
-        </Box>
-      </Toolbar>
+        </Toolbar>
+      </Container>
     </AppBar>
   );
-};
+}
 
 export default LoggedNavbar;
