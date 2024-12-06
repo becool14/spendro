@@ -2,10 +2,10 @@
 
 .main_content {
     text-align: center;
-    position: absolute; /* Абсолютне позиціювання */
-    top: 55%;  /* Відносно контейнера */
-    left: 50%; /* Відносно контейнера */
-    transform: translate(-50%, -50%); /* Переміщаємо елемент */
+  /*  position: absolute; /* Абсолютне позиціювання */
+   /* top: 55%;  /* Відносно контейнера */
+    /*left: 50%; /* Відносно контейнера */
+    /*transform: translate(-50%, -50%); /* Переміщаємо елемент */
   }
   
   .main_content button {

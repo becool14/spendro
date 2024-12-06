@@ -13,14 +13,13 @@
 .home_container {
 display: flex;
 flex-direction: column;
-height: 100vh; /* Висота на всю сторінку */
-justify-content: space-between; /* Вирівнює Navbar, MainContent та Footer по вертикалі */
+min-height: 100vh;
 }
 .main_content {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Вертикальне вирівнювання */
-  align-items: center; /* Горизонтальне вирівнювання */
-  height: 100%; /* Висота на всю доступну площу */
-  text-align: center; /* Центрування тексту всередині */
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1; /* Dostosowuje się do przestrzeni */
+  text-align: center;
 }
