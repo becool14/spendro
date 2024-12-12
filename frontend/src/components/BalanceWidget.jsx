@@ -30,7 +30,6 @@ const BalanceWidget = () => {
         justifyContent: 'center',
         alignItems: 'center',
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-        mt: '6px'
       }}
     >
       <Typography variant="subtitle1" sx={{ opacity: 0.7, color: '#9C9C9C' }}>

@@ -12,7 +12,6 @@ function AccordionFAQ() {
           sx={{
             backgroundColor: '#000000',
             color: 'black',
-            // Переконуємося, що AccordionSummary не займає більше місця, ніж потрібно
             minHeight: '56px',
             '& .MuiAccordionSummary-content': {
               display: 'flex',
@@ -26,7 +25,7 @@ function AccordionFAQ() {
           sx={{
             backgroundColor: '#000000',
             color: 'black',
-            padding: '16px',  // Додано для налаштування відступів
+            padding: '16px',  
           }}
         >
           <Typography>
