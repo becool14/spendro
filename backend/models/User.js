@@ -23,10 +23,23 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Password is required'],
     minlength: [10, 'Password must be at least 10 characters long']
+  },
+  isVerified: {
+    type: Boolean,
+    default: false 
+  },
+  verificationCode: {
+    type: String,
+    default: null
+  },
+  verificationExpires: {
+    type: Date,
+    default: null
   }
 }, {
   timestamps: true
 });
+
 
 const User = mongoose.model('User', userSchema);
 
