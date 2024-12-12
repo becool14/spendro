@@ -3,23 +3,38 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import ContactForm_Routes from './routes/ContactForm_route.js'; // Corrected import statement
 import MonoBankAPI_route from './routes/MonobankAPI_route.js';
+import authRoutes from './routes/User_Route.js';
+import mongoose from 'mongoose';
+import authenticateToken from './controllers/authenticateToken.js';
 import MonoBankAPIExpenses_route from './routes/MonobankAPIExpenses_route.js'
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 5001;
+const mongoURI = process.env.MONGO_URI || 'mongodb://mongo:27017/spendro';
+
+mongoose.connect(mongoURI)
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((err) => {
+    console.error('Error connecting to MongoDB:', err);
+  });
 
 app.use(cors());
 app.use(express.json());
 
+// Working routes
 app.use("/api/contact", ContactForm_Routes);
+app.use(MonoBankAPI_route);
+app.use("/api/auth", authRoutes);
 app.use("/api/mono", MonoBankAPI_route);
 app.use("/api/mono", MonoBankAPIExpenses_route);
 
 // Basic route
 app.get('/', (req, res) => {
-  res.send('SPENDRO BACKEND API 55');
+  res.send('SPENDRO BACKEND API');
 });
 
 // Test route

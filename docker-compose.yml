@@ -31,10 +31,13 @@ services:
 
   mongo:
     image: mongo:latest
+    networks:
+      - app-network
     ports:
       - '27017:27017'
     volumes:
       - mongo-data:/data/db
+      
 
 volumes:
   mongo-data:
