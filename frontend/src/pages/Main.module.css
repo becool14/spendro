@@ -1,3 +1,18 @@
 body{
     background-color: #121212 !important;
 }
+.mainContainer {
+    display: flex;
+    align-items: flex-start;
+    padding-top: 6px ;
+  }
+  
+  .leftColumn {
+    display: flex;
+    flex-direction: column;
+
+  }
+  
+  .centerColumn {
+    margin-left: 6px; /* Отступ слева для центрирования */
+  }

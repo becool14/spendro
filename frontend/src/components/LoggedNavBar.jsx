@@ -43,7 +43,7 @@ function LoggedNavbar() {
 
   return (
     <AppBar position="static" className={styles.navbar}>
-      <Container maxWidth="xl">
+      <Container maxWidth="100%">
         <Toolbar disableGutters className={styles.navbarToolbar}>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
