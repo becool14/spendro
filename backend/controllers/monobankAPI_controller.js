@@ -5,7 +5,7 @@ dotenv.config();
 
 let cachedClientInfo = null;  // Переменная для хранения кэша
 let cacheTimestamp = 0;       // Время последнего обновления кэша (в миллисекундах)
-const CACHE_TTL = 3600000;   
+const CACHE_TTL = 60000;   
 
 const getClientInfo = async (req, res) => {
     const MONOBANK_API_BASE = 'https://api.monobank.ua';
@@ -48,6 +48,12 @@ const getClientInfo = async (req, res) => {
         if (req.path === '/balance') {
             const totalBalance = cachedClientInfo.accounts.reduce((sum, account) => sum + account.balance, 0);
             return res.status(200).json({ balance: totalBalance });
+        }
+
+        if(req.path === '/client_info'){
+            return res.status(200).json({
+                accounts: cachedClientInfo.accounts
+            });
         }
 
         res.status(200).json({

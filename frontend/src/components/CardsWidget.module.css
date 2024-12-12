@@ -1,0 +1,22 @@
+/* В файле CardsWidget.module.css */
+.carousel .slick-slide {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+  
+  .carousel .slick-track {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 6px; /* Фиксированное расстояние между карточками */
+  }
+  
+  .carousel-item {
+    margin: 0; /* Убираем дополнительные отступы вокруг каждого слайда */
+  }
+  
+  .card {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
