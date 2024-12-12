@@ -14,6 +14,13 @@ function LoggedNavbar() {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [darkMode, setDarkMode] = React.useState(false); // состояние переключателя
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+
+    // Перенаправляємо на сторінку входу
+    window.location.href = '/login';    
+  };
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -148,24 +155,26 @@ function LoggedNavbar() {
                   {settings.map((setting) => (
                     <MenuItem
                       key={setting}
+                      onClick={setting === 'log out' ? handleLogout : null} // Додаємо логіку для Log Out
                       sx={{
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'center',
                         color: 'white',
                       }}
-                    >
+                      >
                       <ListItemText primary={setting} />
                       {setting === 'dark mode' && (
                         <Switch 
-                        checked={darkMode} 
-                        onChange={handleToggleDarkMode} 
+                          checked={darkMode} 
+                          onChange={handleToggleDarkMode} 
                         />
                       )}
                       {setting === 'log out' && (
                         <LogoutIcon sx={{ ml: 1 }} />
                       )}
                     </MenuItem>
+
                   ))}
                 </Menu>
               </Box>
