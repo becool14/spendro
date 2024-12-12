@@ -14,13 +14,13 @@ const getPayments = async (req, res) => {
     try {
         const currentTime = Date.now();
         const TimeNow = Math.floor(Date.now() / 1000);
-        const oneMonthAgo = TimeNow - 30 * 24 * 60 * 60; // 30 дней назад в Unix-формате
+        const oneMonthAgo = TimeNow - 2500000; // 30 дней назад в Unix-формате
 
         if (cachedPayments && (currentTime - cacheTimestamp < CACHE_TTL)) {
             console.log('Serving from cache');
         } else {
             console.log('Fetching from Monobank API');
-            const response = await fetch(`${MONOBANK_API_BASE}/personal/statement/${0}/${1733093999}/${1733439599}`, {
+            const response = await fetch(`${MONOBANK_API_BASE}/personal/statement/${0}/${oneMonthAgo}/${TimeNow}`, {
                 method: 'GET',
                 headers: {
                     'X-Token': token,

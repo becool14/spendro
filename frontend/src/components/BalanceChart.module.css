@@ -1,0 +1,31 @@
+.balanceChartContainer {
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.totalBalance {
+  font-weight: bold;
+}
+
+.dateRange {
+  margin-left: 20px;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  background-color: #007bff;
+  color: white;
+}
+
+.chartContainer {
+  margin-top: 20px;
+}
