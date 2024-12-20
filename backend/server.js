@@ -27,7 +27,6 @@ app.use(express.json());
 
 // Working routes
 app.use("/api/contact", ContactForm_Routes);
-app.use(MonoBankAPI_route);
 app.use("/api/auth", authRoutes);
 app.use("/api/mono", MonoBankAPI_route);
 app.use("/api/mono", MonoBankAPIExpenses_route);

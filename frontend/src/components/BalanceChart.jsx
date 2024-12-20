@@ -1,19 +1,51 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Typography, Button, ButtonGroup } from "@mui/material";
-import { BarChart, CartesianGrid ,Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { BarChart, CartesianGrid, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import styles from './BalanceChart.module.css';
 import '@fontsource/varela-round'; // Импортируем Varela Round
+import axios from 'axios';
 
 function BalanceChart() {
-  const data = [
-    { date: 'DEC 12', balance: 6778 },
-    { date: 'DEC 13', balance: 5700 },
-    { date: 'DEC 14', balance: 6123 },
-    { date: 'DEC 15', balance: 4956 },
-    { date: 'DEC 16', balance: 7123 },
-    { date: 'DEC 17', balance: 5777 },
-    { date: 'DEC 18', balance: 3241 },
-  ];
+  const [data, setData] = useState([]);
+  const [dateRange, setDateRange] = useState('');
+
+  useEffect(() => {
+    axios.get('http://localhost:5001/api/mono/monthlybalance')
+      .then(response => {
+        console.log(response.data); // Логируем данные для проверки
+        if (!response.data.monthlybalance || !Array.isArray(response.data.monthlybalance)) {
+          throw new Error('Invalid data structure');
+        }
+
+        // Форматируем данные и оставляем только первую транзакцию для каждой уникальной даты
+        const filteredData = response.data.monthlybalance.reduce((acc, payment) => {
+          const date = new Date(payment.date * 1000).toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+          if (!acc[date]) {
+            acc[date] = { date, balance: payment.balance }; // Добавляем только первую транзакцию
+          }
+          return acc;
+        }, {});
+
+        // Конвертируем объект обратно в массив и переворачиваем порядок
+        const formattedData = Object.values(filteredData).reverse();
+        setData(formattedData);
+
+        // Определяем диапазон дат
+        if (formattedData.length > 0) {
+          const firstDate = formattedData[formattedData.length - 1].date; // Первая транзакция
+          const currentDate = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' }); // Текущая дата
+          setDateRange(`${firstDate} - ${currentDate}`);
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching monthly balance:', error);
+        setData([]); // Устанавливаем пустой массив данных
+      });
+  }, []);
+
+  const CustomizedLabel = props => (
+    <text fontFamily={'Varela Round'} fontSize={8} textAnchor="middle"></text>
+  );
 
   return (
     <Box
@@ -41,7 +73,7 @@ function BalanceChart() {
         <Box>
           <Typography
             variant="h6"
-            sx={{ fontWeight: "bold",color:"#F0EBFA",  textTransform: "capitalize", fontFamily: 'Varela Round' }}
+            sx={{ fontWeight: "bold", color: "#F0EBFA", textTransform: "capitalize", fontFamily: 'Varela Round' }}
           >
             total balance
           </Typography>
@@ -49,7 +81,7 @@ function BalanceChart() {
             variant="body2"
             sx={{ color: "#9C9C9C", marginTop: "4px", fontFamily: 'Varela Round' }}
           >
-            dec 12 - dec 18, 2024
+            {dateRange || 'Loading...'}
           </Typography>
         </Box>
         {/* Toggle Buttons */}
@@ -60,7 +92,7 @@ function BalanceChart() {
               color: "#A3A3A3",
               textTransform: "none",
               fontSize: "14px",
-              fontFamily: 'Varela Round', // Ensure the font applies here as well
+              fontFamily: 'Varela Round',
             },
             "& .MuiButton-root.Mui-selected": {
               color: "white",
@@ -74,18 +106,32 @@ function BalanceChart() {
         </ButtonGroup>
       </Box>
       <Box className={styles.chartContainer}>
-        <ResponsiveContainer width="100%" height={225}>
-          <BarChart data={data}>
-            <CartesianGrid strokeDasharray="5 5" vertical=""  />
-            <XAxis dataKey="date" tick={{ fontSize: 12, fontFamily: 'Varela Round, sans-serif', fill: '#F0EBFA' }} />
-            <YAxis tick={{ fontSize: 12, fontFamily: 'Varela Round, sans-serif', fill: '#F0EBFA' }} />
-            <Tooltip contentStyle={{ fontFamily: 'Varela Round, sans-serif' }} />
-            <Bar dataKey="balance" fill="#8A63D2" barSize={8} radius={10}/>
-          </BarChart>
-        </ResponsiveContainer>
+        {data.length === 0 ? (
+          <Typography variant="body2" sx={{ color: "#9C9C9C", fontFamily: 'Varela Round' }}>
+            No data available for the selected period.
+          </Typography>
+        ) : (
+          <ResponsiveContainer width="100%" height={225}>
+            <BarChart data={data}>
+              <CartesianGrid strokeDasharray="5 5" vertical="" />
+              <XAxis
+                dataKey="date"
+                tick={{ fontSize: 12, fontFamily: 'Varela Round, sans-serif', fill: '#F0EBFA' }}
+                interval={0} // Показываем все метки
+              />
+              <YAxis label={CustomizedLabel} />
+              <Tooltip contentStyle={{ fontFamily: 'Varela Round, sans-serif' }} />
+              <Bar dataKey="balance" fill="#8A63D2" barSize={8} radius={10} />
+            </BarChart>
+          </ResponsiveContainer>
+        )}
       </Box>
     </Box>
   );
 }
 
 export default BalanceChart;
+
+
+
+

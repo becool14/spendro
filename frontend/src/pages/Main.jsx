@@ -8,12 +8,7 @@ import { Box } from "@mui/material";
 function Main() {
   return (
     <Box >
-      <LoggedNavbar />
-      <BalanceWidget />
-      <ExpensesWidget />
-      <CardsWidget />
-
-    </div>
+          <LoggedNavbar />
     
       <Box className={styles.mainContainer}>
         <Box className={styles.leftColumn}>
@@ -24,6 +19,7 @@ function Main() {
           <BalanceChart />
         </Box>
       </Box>
+      <CardsWidget />
     </Box>
   );
 }   
