@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* Ukryj przewijanie w poziomie */
     box-sizing: border-box;
     outline: none;
     text-decoration: none;
