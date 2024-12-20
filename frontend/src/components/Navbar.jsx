@@ -15,6 +15,8 @@ import styles from "./Navbar.module.css";
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [showNavbar, setShowNavbar] = React.useState(true);
+  const [lastScrollY, setLastScrollY] = React.useState(0);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -27,31 +29,61 @@ function ResponsiveAppBar() {
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
-  
+
+  const controlNavbar = () => {
+    if (window.scrollY > lastScrollY) {
+      setShowNavbar(false); // Ukryj navbar przy przewijaniu w dół
+    } else {
+      setShowNavbar(true); // Pokaż navbar przy przewijaniu w górę
+    }
+    setLastScrollY(window.scrollY);
+  };
+
+  React.useEffect(() => {
+    window.addEventListener("scroll", controlNavbar);
+    return () => {
+      window.removeEventListener("scroll", controlNavbar);
+    };
+  }, [lastScrollY]);
 
   return (
-    <AppBar position="static" sx={{ bgcolor: "black" }}>
+    <AppBar
+      position="fixed"
+      sx={{
+        bgcolor: "black",
+        transform: showNavbar ? "translateY(0)" : "translateY(-100%)",
+        transition: "transform 0.3s ease-in-out",
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar
           disableGutters
           sx={{ justifyContent: "space-between", width: "100%" }}
         >
-          {/* Логотип */}
-
           {/* Navigation buttons */}
           <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
+            {/* Logo */}
             <Link to="/" style={{ textDecoration: "none" }}>
               <LogoWhite />
             </Link>
-            <Button color="inherit" onClick={() => scrollToSection('about-us')}>about us</Button>
-            <Button color="inherit" onClick={() => scrollToSection('faq')}>FAQ</Button>
-            <Button color="inherit" onClick={() => scrollToSection('contact-us')}>contact us</Button>
+            <Button color="inherit" onClick={() => scrollToSection("about-us")}>
+              about us
+            </Button>
+            <Button color="inherit" onClick={() => scrollToSection("faq")}>
+              FAQ
+            </Button>
+            <Button
+              color="inherit"
+              onClick={() => scrollToSection("contact-us")}
+            >
+              contact us
+            </Button>
           </Box>
 
-          {/* Респонсивна навігація */}
+          {/* Responsive navigation */}
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -73,8 +105,8 @@ function ResponsiveAppBar() {
               onClose={handleCloseNavMenu}
               sx={{
                 "& .MuiPaper-root": {
-                  backgroundColor: "#333", // Темний фон меню
-                  color: "#fff", // Білий текст
+                  backgroundColor: "#333",
+                  color: "#fff",
                 },
               }}
             >
@@ -97,7 +129,7 @@ function ResponsiveAppBar() {
             </Menu>
           </Box>
 
-          {/* Статичне меню для великих екранів */}
+          {/* Static menu for larger screens */}
           <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
             <Button component={Link} to="/login" color="inherit">
               login
