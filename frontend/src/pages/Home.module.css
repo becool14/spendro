@@ -1,5 +1,5 @@
 .home_container {
-  background-image: url('../assets/backgrounds/main-background.png'); /* шлях до зображення */
+  /*background-image: url('../assets/backgrounds/main-background.png'); /* шлях до зображення */
   background-size: cover; /* Масштабування зображення на всю ширину та висоту */
   background-repeat: no-repeat; /* Забороняє повторення зображення */
   background-position: center; /* Центрує зображення на сторінці */

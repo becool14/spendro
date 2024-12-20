@@ -17,6 +17,7 @@ import ProtectedRoute from './auth/ProtectedRoute';
 import BlockedForLoggedIn from './auth/BlockedForLoggedIn';
 import { isTokenExpired } from './auth/authUtils';
 
+
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
