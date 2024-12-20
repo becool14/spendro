@@ -32,7 +32,7 @@ function BalanceChart() {
 
         // Определяем диапазон дат
         if (formattedData.length > 0) {
-          const firstDate = formattedData[formattedData.length - 1].date; // Первая транзакция
+          const firstDate = formattedData[0].date; // Первая транзакция
           const currentDate = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric' }); // Текущая дата
           setDateRange(`${firstDate} - ${currentDate}`);
         }
@@ -131,6 +131,7 @@ function BalanceChart() {
 }
 
 export default BalanceChart;
+
 
 
 
