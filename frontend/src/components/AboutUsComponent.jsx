@@ -93,8 +93,8 @@ function AboutUsComponent() {
       {/* why spendro */}
       <Box
         sx={{
-          mt: "150px",
-          mx:'auto',
+          mt: "120px",
+          mx: "auto",
           width: "85%",
           display: "flex",
           flexDirection: "column",
@@ -106,15 +106,15 @@ function AboutUsComponent() {
           sx={{
             display: "flex",
             flexDirection: "row",
-            gap:'10px'
+            gap: "10px",
           }}
         >
           <Box
             sx={{
               width: "50%",
-              display:'flex',
-              flexDirection:'column',
-              gap:'10px'
+              display: "flex",
+              flexDirection: "column",
+              gap: "10px",
             }}
           >
             <Box className={styles.purplePanel}>
@@ -139,9 +139,9 @@ function AboutUsComponent() {
           <Box
             sx={{
               width: "50%",
-              display:'flex',
-              flexDirection:'column',
-              gap:'10px'
+              display: "flex",
+              flexDirection: "column",
+              gap: "10px",
             }}
           >
             <Box className={styles.purplePanel}>
@@ -161,6 +161,74 @@ function AboutUsComponent() {
                 aby jeszcze lepiej spełniała oczekiwania naszych użytkowników.
               </Typography>
             </Box>
+          </Box>
+        </Box>
+      </Box>
+
+      {/* our team */}
+      <Box
+        sx={{
+          mt: "120px",
+          mx: "auto",
+          width: "85%",
+          display: "flex",
+          flexDirection: "column",
+          gap: "40px",
+        }}
+      >
+        <Box>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+            }}
+          >
+            <Typography variant="h5" sx={{ width: "25%" }}>
+              [ Nasz zespół ]
+            </Typography>
+            <Typography sx={{ width: "75%" }}>
+              Jesteśmy grupą pasjonatów finansów, technologii i nowoczesnych
+              rozwiązań, których wspólnym celem jest rozwój narzędzi
+              pomagających w świadomym zarządzaniu budżetem. Każdego dnia
+              pracujemy nad tym, aby Spendro spełniało potrzeby naszych
+              użytkowników i pomagało im w prowadzeniu bardziej zrównoważonego
+              życia finansowego.
+            </Typography>
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+          }}
+        >
+          <Box className={styles.teamMember}>
+            <Box className={styles.teamMemberPhoto}> </Box>
+            <Typography>
+                <Typography variant="h5"> Imie i nazwisko</Typography>
+                stanowisko
+            </Typography>
+          </Box>
+          <Box className={styles.teamMember}>
+            <Box className={styles.teamMemberPhoto}> </Box>
+            <Typography>
+                <Typography variant="h5"> Imie i nazwisko</Typography>
+                stanowisko
+            </Typography>
+          </Box>
+          <Box className={styles.teamMember}>
+            <Box className={styles.teamMemberPhoto}> </Box>
+            <Typography>
+                <Typography variant="h5"> Imie i nazwisko</Typography>
+                stanowisko
+            </Typography>
+          </Box>
+          <Box className={styles.teamMember}>
+            <Box className={styles.teamMemberPhoto}> </Box>
+            <Typography>
+                <Typography variant="h5"> Imie i nazwisko</Typography>
+                stanowisko
+            </Typography>
           </Box>
         </Box>
       </Box>
