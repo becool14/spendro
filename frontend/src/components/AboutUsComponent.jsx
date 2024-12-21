@@ -11,6 +11,7 @@ function AboutUsComponent() {
         sx={{
           display: "flex",
           flexDirection: "row",
+          gap:'80px',
           width: "85%",
           margin: "0 auto",
         }}
@@ -18,9 +19,12 @@ function AboutUsComponent() {
         <Box
           sx={{
             width: "65%",
+            display:'flex',
+            alignItems:'center',
+            justifyContent:'center',
           }}
         >
-          <img src={mainView} />
+          <img src={mainView} width="100%"/>
         </Box>
         <Box sx={{ width: "35%", display: "flex", alignItems: "center" }}>
           <Typography>
