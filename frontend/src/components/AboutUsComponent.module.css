@@ -2,3 +2,9 @@
     margin-top: 70px;
     padding-top: 280px;
 }
+
+.purplePanel{
+    background-color: #301269;
+    padding: 20px 40% 20px 20px;
+    border-radius: 20px;
+}

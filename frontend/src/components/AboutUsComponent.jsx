@@ -2,6 +2,10 @@ import { Box, Typography } from "@mui/material";
 import styles from "./AboutUsComponent.module.css";
 import mainView from "../assets/pictures/main_view.png";
 import cards from "../assets/pictures/cards.png";
+import circles from "../assets/icons/panel_icons/circles.png";
+import key from "../assets/icons/panel_icons/key.png";
+import individual from "../assets/icons/panel_icons/individual.png";
+import walk from "../assets/icons/panel_icons/walk.png";
 
 function AboutUsComponent() {
   return (
@@ -11,7 +15,7 @@ function AboutUsComponent() {
         sx={{
           display: "flex",
           flexDirection: "row",
-          gap:'80px',
+          gap: "80px",
           width: "85%",
           margin: "0 auto",
         }}
@@ -19,12 +23,12 @@ function AboutUsComponent() {
         <Box
           sx={{
             width: "65%",
-            display:'flex',
-            alignItems:'center',
-            justifyContent:'center',
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          <img src={mainView} width="100%"/>
+          <img src={mainView} width="100%" />
         </Box>
         <Box sx={{ width: "35%", display: "flex", alignItems: "center" }}>
           <Typography>
@@ -49,7 +53,7 @@ function AboutUsComponent() {
           padding: "10px 90px 30px 90px",
           gap: "20px",
           borderRadius: "20px",
-          mt:'70px'
+          mt: "70px",
         }}
       >
         <Box
@@ -83,6 +87,81 @@ function AboutUsComponent() {
             narzędziem – chcemy, aby była wsparciem na drodze do poprawy
             kondycji finansowej i realizacji długoterminowych planów.
           </Typography>
+        </Box>
+      </Box>
+
+      {/* why spendro */}
+      <Box
+        sx={{
+          mt: "150px",
+          mx:'auto',
+          width: "85%",
+          display: "flex",
+          flexDirection: "column",
+          gap: "30px",
+        }}
+      >
+        <Typography>[ Dlaczego Spendro? ]</Typography>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            gap:'10px'
+          }}
+        >
+          <Box
+            sx={{
+              width: "50%",
+              display:'flex',
+              flexDirection:'column',
+              gap:'10px'
+            }}
+          >
+            <Box className={styles.purplePanel}>
+              <img src={circles} />
+              <Typography>
+                <Typography variant="h6">Prostota i intuicyjność</Typography>
+                Spendro zostało zaprojektowane tak, aby każdy mógł z łatwością
+                śledzić swoje wydatki i analizować budżet.
+              </Typography>
+            </Box>
+            <Box className={styles.purplePanel}>
+              <img src={key} />
+              <Typography>
+                <Typography variant="h6">Bezpieczeństwo danych</Typography>
+                Zdajemy sobie sprawę, jak ważna jest prywatność i
+                bezpieczeństwo. Dlatego stosujemy najnowocześniejsze
+                technologie, aby zapewnić ochronę wszystkich danych
+                użytkowników.
+              </Typography>
+            </Box>
+          </Box>
+          <Box
+            sx={{
+              width: "50%",
+              display:'flex',
+              flexDirection:'column',
+              gap:'10px'
+            }}
+          >
+            <Box className={styles.purplePanel}>
+              <img src={individual} />
+              <Typography>
+                <Typography variant="h6">Indywidualne podejście</Typography>
+                Rozumiemy, że każdy użytkownik ma inne potrzeby finansowe,
+                dlatego oferujemy wiele opcji dostosowywania kategorii wydatków
+                oraz raportów.
+              </Typography>
+            </Box>
+            <Box className={styles.purplePanel}>
+              <img src={walk} />
+              <Typography>
+                <Typography variant="h6">Ciągły rozwój</Typography>
+                Regularnie aktualizujemy aplikację i wprowadzamy nowe funkcje,
+                aby jeszcze lepiej spełniała oczekiwania naszych użytkowników.
+              </Typography>
+            </Box>
+          </Box>
         </Box>
       </Box>
     </div>
