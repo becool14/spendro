@@ -1,7 +1,14 @@
 /* src/components/MainContent.css */
 
+
+
 .main_content {
     text-align: center;
+    background-image: url('../assets/backgrounds/main-background.png');
+    background-repeat: no-repeat; /* Zapobiega powtarzaniu obrazu */
+    /*background-size: cover; /* Obraz dopasowuje się do rozmiaru kontenera */
+    background-position: top; /* Ustawia obraz na górze */
+    /*background-attachment: fixed; /* Tło pozostaje nieruchome podczas przewijania */
   /*  position: absolute; /* Абсолютне позиціювання */
    /* top: 55%;  /* Відносно контейнера */
     /*left: 50%; /* Відносно контейнера */

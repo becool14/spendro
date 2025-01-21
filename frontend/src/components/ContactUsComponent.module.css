@@ -1,24 +1,20 @@
+.container{
+    width: 95%;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* ContactForm.css */
 
-/* Root container */
-.form_container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background-color: #cf3f3f;
-    color: #ffffff;
-  }
-  
+
   /* Form box styling */
   .form_box {
-    background-color: #2e2e2e;
-    padding: 2rem;
-    border-radius: 15px;
     max-width: 500px;
     width: 100%;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
   }
   
   /* Typography */
@@ -26,6 +22,7 @@
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
+    
   }
   
   .form_subtitle {
@@ -36,28 +33,29 @@
   
   /* Input fields */
   .form_field {
-    background-color: #1e1e1e;
-    color: #ffffff;
-    margin-bottom: 1rem;
+    background-color: #F0EBFA;
+    color: #000000;
+    border-radius: 10px;
+    /*margin-bottom: 1rem;*/
+    margin-top: 5px;
     
   }
   
   .form_field input,
   .form_field textarea {
-    background-color: #1e1e1e;
-    color: #ffffff ;
+    background-color: #F0EBFA;
+    color: #020202 ;
   }
   
   
   /* Submit button */
   .submit_button {
     background-color:#5820BE !important;
-    width: 100%;
+    width: 50%;
     padding: 0.75rem;
     font-size: 1rem;
     font-weight: bold;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
     margin-top: 1rem;
     transition: background-color 0.3s ease;
@@ -76,3 +74,5 @@
     min-height: 100vh;
     background-color: #1e1e1e;
   }
+
+  

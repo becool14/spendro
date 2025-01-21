@@ -1,0 +1,21 @@
+.container{
+    margin-top: 70px;
+    padding-top: 350px;
+}
+
+.purplePanel{
+    background-color: #301269;
+    padding: 20px 40% 20px 20px;
+    border-radius: 20px;
+}
+
+.teamMember{
+    width: 24%;
+    margin: auto;
+}
+
+.teamMemberPhoto{
+    height: 280px;
+    background-color: #D9D9D9;
+    border-radius: 15px;
+}
