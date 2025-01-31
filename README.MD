@@ -1,5 +1,3 @@
-Sure! Here's the content formatted for a README file in plain text:
-
 ```
 # Spendro MERN Application
 
