@@ -96,19 +96,3 @@ Ensure that the environment variable `MONGO_URI` points to the correct host (in 
 
 If you make changes to the code, they should be automatically recognized due to volumes. If changes are not applying, check the settings in `docker-compose.yml`.
 
-## Additional Information
-
-You can find the documentation for Docker and Docker Compose here:
-
-- [Docker Documentation](https://docs.docker.com/)
-- [Docker Compose Documentation](https://docs.docker.com/compose/)
-
-### Explanation of `README.md`
-
-1. **Description**: The documentation explains what the project is and which technologies it uses.
-2. **Requirements**: Users must have Docker and Docker Compose, which are already included in Docker Desktop.
-3. **Setup and Run**: Detailed steps for running the project, from cloning the repository to running `docker-compose`.
-4. **Docker Commands**: Useful commands for stopping, starting, and checking containers.
-5. **Troubleshooting**: Common errors and ways to resolve them, enabling team members to address issues independently.
-
-This will help your colleague quickly set up the project and resolve most potential problems without additional questions.
